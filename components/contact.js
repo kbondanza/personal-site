@@ -1,12 +1,34 @@
-import { Fragment } from "react";
 import { Formik } from "formik";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const StyledHeading = styled.h2`
+  color: blue;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledButton = styled.button`
+  height: 40px;
+  border-radius: 3px;
+  background-color: #283593;
+  color: #fff;
+  letter-spacing: 1px;
+`;
 
 const Contact = () => (
-  <Fragment>
-    <h2>Contact</h2>
+  <StyledContainer>
+    <StyledHeading>Contact</StyledHeading>
     <Formik
       render={props => (
-        <form onSubmit={props.handleSubmit}>
+        <StyledForm onSubmit={props.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -31,11 +53,11 @@ const Contact = () => (
             value={props.values.name}
             name="message"
           />
-          <button type="submit">Submit</button>
-        </form>
+          <StyledButton type="submit">Submit</StyledButton>
+        </StyledForm>
       )}
     />
-  </Fragment>
+  </StyledContainer>
 );
 
 export default Contact;

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{252:function(e,n,t){__NEXT_REGISTER_PAGE("/resume",function(){return e.exports=t(253),{page:e.exports.default}})},253:function(e,n,t){"use strict";t.r(n);var u=t(0),a=t.n(u),r=t(35);n.default=function(){return a.a.createElement("div",null,a.a.createElement(r.a,null),a.a.createElement("h2",null,"Resume"))}}},[[252,1,0]]]);

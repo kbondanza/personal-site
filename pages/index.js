@@ -1,11 +1,25 @@
-import { Component } from "react";
+// @flow
+import { Component, Fragment } from "react";
 import Head from "next/head";
 import Header from "../components/header";
 import Modal from "../components/modal";
+import ConstructionMessage from "../components/construction_message";
 
-class index extends Component {
+type Props = {
+  isUnderConstruction: boolean
+};
+
+type State = {
+  modalIsOpen: boolean
+};
+
+class index extends Component<Props, State> {
   state = {
     modalIsOpen: false
+  };
+
+  static defaultProps = {
+    isUnderConstruction: true
   };
 
   handleClickContact = () => {
@@ -16,25 +30,22 @@ class index extends Component {
   };
 
   render() {
+    console.error(this.props.isUnderConstruction);
     return (
       <div>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
+          <title>Kelly Bondanza</title>
         </Head>
-        <style jsx global>
-          {`
-            body {
-              margin: 0;
-            }
-            button {
-              cursor: pointer;
-            }
-          `}
-        </style>
-        <Header onClickContact={this.handleClickContact} />
-        <Modal isOpen={this.state.modalIsOpen} />
-        hello
+        {this.props.isUnderConstruction ? (
+          <ConstructionMessage />
+        ) : (
+          <Fragment>
+            <Header onClickContact={this.handleClickContact} />
+            <Modal isOpen={this.state.modalIsOpen} />
+          </Fragment>
+        )}
       </div>
     );
   }
